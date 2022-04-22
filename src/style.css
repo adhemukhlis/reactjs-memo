@@ -1,3 +1,4 @@
-h1, p {
-  font-family: Lato;
+.flash-bg {
+  background-color: tomato;
+  border-radius: 4px;
 }
