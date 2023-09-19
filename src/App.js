@@ -1,13 +1,20 @@
 import React from 'react';
 import './style.css';
-const ComponentA = React.memo((props) => {
-  console.log('Component A rendered');
-  return (
-    <div>
-      <p>Component A count: {props.count}</p>
-    </div>
-  );
-});
+import { isEqual } from 'lodash';
+const ComponentA = React.memo(
+  (props) => {
+    console.log('Component A rendered');
+    return (
+      <div>
+        <p>Component A count: {props.count}</p>
+      </div>
+    );
+  },
+  (prevProps, nextProps) => true
+  // !['count']
+  //   .map((item) => isEqual(prevProps[item], nextProps[item]))
+  //   .includes(false)
+);
 
 const ComponentB = (props) => {
   console.log('Component B rendered');
